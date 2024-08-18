@@ -13,7 +13,7 @@ RUN apk add \
     # dev
     git \
     just \
-    lua \
+    lua5.4 \
     bash \
     powershell \
     nushell \
