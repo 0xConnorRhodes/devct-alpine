@@ -62,6 +62,7 @@ RUN mkdir /home/connor/code && chown -R 1000:1000 /home/connor/code
 RUN mkdir /home/connor/notesvol && chown -R 1000:1000 /home/connor/notesvol
 RUN mkdir -p /home/connor/.local/share/zoxide
 RUN mkdir -p /home/connor/.local/share/fish
+RUN mkdir -p /home/connor/.vscode-server && chown -R 1000:1000 /home/connor/.vscode-server
 RUN chown -R 1000:1000 /home/connor/.local 
 
 # set run context for container
