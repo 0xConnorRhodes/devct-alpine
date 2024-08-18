@@ -36,9 +36,9 @@ RUN apk add \
 COPY bootstrap/* /opt/bootstrap/
 
 #RUN adduser -D -s /usr/bin/fish connor \
-#    adduser connor wheel
 
 RUN adduser -D -s /usr/bin/fish connor
+RUN adduser connor wheel
 
 RUN echo 'permit persist :wheel' > /etc/doas.d/doas.conf
 
