@@ -34,4 +34,10 @@ RUN apk add \
 
 COPY bootstrap/* /opt/bootstrap/
 
+RUN adduser -D connor
+
+# set run context for container
+USER connor
+WORKDIR /home/connor
+
 ENTRYPOINT ["/opt/bootstrap/entrypoint.sh"]
