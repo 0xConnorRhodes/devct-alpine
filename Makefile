@@ -1,11 +1,13 @@
 shell:
-	docker exec -it dev /usr/bin/fish
+	docker exec -it devpine /usr/bin/fish
 
 run:
-	docker run -d --name dev --hostname devpine ghcr.io/0xconnorrhodes/devct-alpine
+	docker container rm -f devpine
+	docker run -d --name devpine --hostname devpine ghcr.io/0xconnorrhodes/devct-alpine
+	docker exec -it devpine /usr/bin/fish
 
 rerun:
-	docker container rm -f dev
+	docker container rm -f devpine
 	docker pull ghcr.io/0xconnorrhodes/devct-alpine
-	docker container run -d --name dev --hostname devpine ghcr.io/0xconnorrhodes/devct-alpine
-	docker exec -it dev /usr/bin/fish
+	docker container run -d --name devpine --hostname devpine ghcr.io/0xconnorrhodes/devct-alpine
+	docker exec -it devpine /usr/bin/fish
