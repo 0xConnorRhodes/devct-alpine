@@ -58,6 +58,7 @@ RUN echo 'permit persist :wheel' > /etc/doas.d/doas.conf
 RUN mkdir /out && chown -R 1000:1000 /out
 RUN mkdir /persistent && chown -R 1000:1000 /persistent
 RUN mkdir /home/connor/code && chown -R 1000:1000 /home/connor/code
+RUN mkdir /home/connor/notes && chown -R 1000:1000 /home/connor/notes
 RUN mkdir -p /home/connor/.local/share/zoxide
 RUN mkdir -p /home/connor/.local/share/fish
 RUN chown -R 1000:1000 /home/connor/.local 
