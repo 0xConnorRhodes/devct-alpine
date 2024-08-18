@@ -52,6 +52,10 @@ RUN adduser connor wheel
 
 RUN echo 'permit persist :wheel' > /etc/doas.d/doas.conf
 
+# set persistent volume permissions
+RUN mkdir /out && chown -R connor:connor /out
+RUN mkdir /persistent && chown -R connor:connor /persistent
+
 # set run context for container
 USER connor
 WORKDIR /home/connor
