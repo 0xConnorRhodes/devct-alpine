@@ -47,6 +47,6 @@ RUN echo 'permit persist :wheel' > /etc/doas.d/doas.conf
 USER connor
 WORKDIR /home/connor
 
-RUN chezmoi init --apply 0xConnorRhodes
+RUN chezmoi init --apply 0xConnorRhodes || true
 
 ENTRYPOINT ["/opt/bootstrap/entrypoint.sh"]
