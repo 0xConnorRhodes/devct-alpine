@@ -9,4 +9,4 @@ $modules = @(
 	"verkadaModule"
 )
 
-$modules | ForEach-Object { Install-Module -Force -Name $_ }
+$modules | ForEach-Object { Install-Module -Force -Scope AllUsers -Name $_ }
