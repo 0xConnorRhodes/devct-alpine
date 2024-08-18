@@ -73,5 +73,6 @@ RUN pip install \
     --break-system-packages
 
 RUN chezmoi init --apply 0xConnorRhodes || true
+RUN sed -i "s|https://github.com/0xConnorRhodes/dotfiles.git|git@github.com:0xConnorRhodes/dotfiles.git|g" "/home/connor/.local/share/chezmoi/.git/config"
 
 ENTRYPOINT ["/opt/bootstrap/entrypoint.sh"]
