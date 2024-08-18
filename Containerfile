@@ -33,6 +33,19 @@ RUN apk add \
     lf \
     neovim
 
+# PowerShell setup
+RUN pwsh -NoLogo -NoProfile -Command " \
+    mkdir -p /usr/local/share/powershell/Modules ; \
+    curl -L https://psg-prod-eastus.azureedge.net/packages/packagemanagement.1.4.8.1.nupkg -o /tmp/PackageManagement.nupkg ; \
+    unzip -o /tmp/PackageManagement.nupkg -d /usr/local/share/powershell/Modules/PackageManagement ; \
+    rm /tmp/PackageManagement.nupkg ; \
+    curl -L https://psg-prod-eastus.azureedge.net/packages/powershellget.2.2.5.nupkg -o /tmp/PowerShellGet.nupkg ; \
+    unzip -o /tmp/PowerShellGet.nupkg -d /usr/local/share/powershell/Modules/PowerShellGet ; \
+    rm /tmp/PowerShellGet.nupkg ; \
+    Import-Module /usr/local/share/powershell/Modules/PackageManagement ; \
+    Import-Module /usr/local/share/powershell/Modules/PowerShellGet ; \
+    "
+
 COPY bootstrap/* /opt/bootstrap/
 
 #RUN adduser -D -s /usr/bin/fish connor \
