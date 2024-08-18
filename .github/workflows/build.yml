@@ -1,0 +1,78 @@
+name: Create and publish Devcontainer Image
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'Containerfile'
+      - 'bootstrap/**'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'Containerfile'
+      - 'bootstrap/**'
+  schedule:
+    - cron: "0 2 * * 5" # weekly on friday 2am UTC
+  workflow_dispatch:
+    inputs:
+      debug_enabled:
+        type: boolean
+        description: 'debug with tmate'
+        required: false
+        default: false
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  build-and-push-image:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to the Container registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          flavor: | 
+            latest=true
+          tags: |
+            type=ref,event=branch
+            type=sha
+
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.debug_enabled }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: Containerfile
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+         #platforms: linux/amd64
+          platforms: linux/amd64,linux/arm64
+
+      - name: Logout from GitHub Container Registry
+        run: docker logout ghcr.io
