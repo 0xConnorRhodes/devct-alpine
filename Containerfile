@@ -19,6 +19,8 @@ RUN apk add \
     # python
     python3 \
     py3-pip \
+    py3-jinja2 \
+    ipython \
     # gen workflow
     unzip \
     screen \
@@ -53,12 +55,16 @@ RUN adduser connor wheel
 RUN echo 'permit persist :wheel' > /etc/doas.d/doas.conf
 
 # set persistent volume permissions
-RUN mkdir /out && chown -R connor:connor /out
-RUN mkdir /persistent && chown -R connor:connor /persistent
+RUN mkdir /out && chown -R 1000:1000 /out
+RUN mkdir /persistent && chown -R 1000:1000 /persistent
 
 # set run context for container
 USER connor
 WORKDIR /home/connor
+
+RUN pip install \
+    pyfzf \
+    --break-system-packages
 
 RUN chezmoi init --apply 0xConnorRhodes || true
 
