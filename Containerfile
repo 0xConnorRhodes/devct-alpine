@@ -34,13 +34,14 @@ RUN apk add \
     neovim
 
 # PowerShell setup
-RUN mkdir -p /usr/local/share/powershell/modules ; \
-    curl -L https://psg-prod-eastus.azureedge.net/packages/packagemanagement.1.4.8.1.nupkg -o /tmp/PackageManagement.nupkg ; \
-    unzip -o /tmp/PackageManagement.nupkg -d /usr/local/share/powershell/Modules/PackageManagement ; \
-    rm /tmp/PackageManagement.nupkg ; \
-    curl -L https://psg-prod-eastus.azureedge.net/packages/powershellget.2.2.5.nupkg -o /tmp/PowerShellGet.nupkg ; \
-    unzip -o /tmp/PowerShellGet.nupkg -d /usr/local/share/powershell/Modules/PowerShellGet ; \
-    rm /tmp/PowerShellGet.nupkg ; \
+RUN mkdir -p /usr/local/share/powershell/Modules
+
+#    curl -L https://psg-prod-eastus.azureedge.net/packages/packagemanagement.1.4.8.1.nupkg -o /tmp/PackageManagement.nupkg ; \
+#    unzip -o /tmp/PackageManagement.nupkg -d /usr/local/share/powershell/Modules/PackageManagement ; \
+#    rm /tmp/PackageManagement.nupkg ; \
+#    curl -L https://psg-prod-eastus.azureedge.net/packages/powershellget.2.2.5.nupkg -o /tmp/PowerShellGet.nupkg ; \
+#    unzip -o /tmp/PowerShellGet.nupkg -d /usr/local/share/powershell/Modules/PowerShellGet ; \
+#    rm /tmp/PowerShellGet.nupkg ; \
 
 COPY bootstrap/* /opt/bootstrap/
 
