@@ -10,5 +10,3 @@ $modules = @(
 )
 
 $modules | ForEach-Object { Install-Module -Force -Name $_ }
-
-$psversiontable > /home/connor/pstest.txt
