@@ -37,9 +37,8 @@ RUN apk add \
 RUN mkdir -p /usr/local/share/powershell/Modules
 RUN curl -L https://psg-prod-eastus.azureedge.net/packages/packagemanagement.1.4.8.1.nupkg -o /tmp/PackageManagement.nupkg
 RUN unzip -o /tmp/PackageManagement.nupkg -d /usr/local/share/powershell/Modules/PackageManagement
+RUN rm /tmp/PackageManagement.nupkg
 
-#    unzip -o /tmp/PackageManagement.nupkg -d /usr/local/share/powershell/Modules/PackageManagement ; \
-#    rm /tmp/PackageManagement.nupkg ; \
 #    curl -L https://psg-prod-eastus.azureedge.net/packages/powershellget.2.2.5.nupkg -o /tmp/PowerShellGet.nupkg ; \
 #    unzip -o /tmp/PowerShellGet.nupkg -d /usr/local/share/powershell/Modules/PowerShellGet ; \
 #    rm /tmp/PowerShellGet.nupkg ; \
