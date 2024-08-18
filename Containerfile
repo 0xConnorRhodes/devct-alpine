@@ -14,6 +14,7 @@ RUN apk add \
     git \
     just \
     lua \
+    bash \
     powershell \
     nushell \
     # python
