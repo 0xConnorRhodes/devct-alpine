@@ -36,9 +36,6 @@ RUN apk add \
     lf \
     neovim
 
-RUN apk del \
-    lua
-
 # PowerShell setup
 RUN mkdir -p /usr/local/share/powershell/Modules
 RUN curl -L https://psg-prod-eastus.azureedge.net/packages/packagemanagement.1.4.8.1.nupkg -o /tmp/PackageManagement.nupkg
