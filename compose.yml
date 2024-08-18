@@ -1,0 +1,9 @@
+---
+services:
+  devct:
+    build:
+      context: .
+      dockerfile: Containerfile
+    image: devct-alpine
+    container_name: devpine
+    hostname: "devpine"
