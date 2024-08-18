@@ -44,7 +44,7 @@ RUN rm /tmp/PowerShellGet.nupkg
 
 COPY bootstrap/* /opt/bootstrap/
 
-#RUN adduser -D -s /usr/bin/fish connor \
+RUN /opt/bootstrap/bootstrap-powershell.ps1
 
 RUN adduser -D -s /usr/bin/fish connor
 RUN echo 'connor:pass' | chpasswd
