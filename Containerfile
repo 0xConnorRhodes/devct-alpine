@@ -5,6 +5,7 @@ RUN apk upgrade
 # install programs
 RUN apk add \
     # gen utils
+    doas \
     chezmoi \
     # networking utils
     rsync \
@@ -34,7 +35,7 @@ RUN apk add \
 
 COPY bootstrap/* /opt/bootstrap/
 
-RUN adduser -D connor
+RUN adduser -D -s /usr/bin/fish connor wheel
 
 # set run context for container
 USER connor
