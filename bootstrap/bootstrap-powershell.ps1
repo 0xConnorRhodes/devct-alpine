@@ -3,7 +3,6 @@
 Import-Module /usr/local/share/powershell/Modules/PackageManagement
 Import-Module /usr/local/share/powershell/Modules/PowerShellGet
 
-
 $modules = @(
 	"PSReadLine",
 	"verkadaModule"
