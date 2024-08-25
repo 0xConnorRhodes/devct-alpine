@@ -14,7 +14,8 @@ on:
       - 'Containerfile'
       - 'bootstrap/**'
   schedule:
-    - cron: "0 1 * * *" # nightly at 1am
+   #- cron: "0 1 * * *" # nightly at 1am
+    - cron: "0 2 * * 5" # weekly on friday 2am UTC
   workflow_dispatch:
     inputs:
       debug_enabled:
