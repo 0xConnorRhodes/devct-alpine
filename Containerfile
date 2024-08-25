@@ -10,6 +10,7 @@ RUN apk add \
     # networking utils
     rsync \
     curl \
+    aria2 \
     # dev
     git \
     just \
