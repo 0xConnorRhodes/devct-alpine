@@ -25,6 +25,7 @@ RUN apk add \
     pipx \
     # gen workflow
     unzip \
+    zip \
     screen \
     mosh \
     tree \
