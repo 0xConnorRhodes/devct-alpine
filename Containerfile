@@ -22,6 +22,7 @@ RUN apk add \
     py3-pip \
     py3-jinja2 \
     ipython \
+    pipx \
     # gen workflow
     unzip \
     screen \
@@ -72,6 +73,9 @@ WORKDIR /home/connor
 RUN pip install \
     pyfzf \
     --break-system-packages
+
+RUN pipx install \
+    magic-wormhole
 
 RUN chezmoi init --apply 0xConnorRhodes || true
 RUN sed -i "s|https://github.com/0xConnorRhodes/dotfiles.git|git@github.com:0xConnorRhodes/dotfiles.git|g" "/home/connor/.local/share/chezmoi/.git/config"
