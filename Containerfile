@@ -74,6 +74,7 @@ WORKDIR /home/connor
 
 RUN pip install \
     pyfzf \
+    xonsh \
     --break-system-packages
 
 RUN pipx install \
