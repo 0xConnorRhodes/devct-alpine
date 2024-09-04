@@ -6,6 +6,7 @@ RUN apk upgrade
 RUN apk add \
     # gen utils
     doas \
+    tzdata \
     chezmoi \
     # networking utils
     rsync \
@@ -38,6 +39,9 @@ RUN apk add \
     zoxide \
     lf \
     neovim
+
+# set central timezone
+ln -sf /usr/share/zoneinfo/America/Chicago /etc/localtime
 
 # PowerShell setup
 RUN mkdir -p /usr/local/share/powershell/Modules
