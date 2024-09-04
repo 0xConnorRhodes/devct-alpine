@@ -41,7 +41,7 @@ RUN apk add \
     neovim
 
 # set central timezone
-ln -sf /usr/share/zoneinfo/America/Chicago /etc/localtime
+RUN ln -sf /usr/share/zoneinfo/America/Chicago /etc/localtime
 
 # PowerShell setup
 RUN mkdir -p /usr/local/share/powershell/Modules
