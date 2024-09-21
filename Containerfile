@@ -83,7 +83,8 @@ RUN pip install \
     --break-system-packages
 
 RUN pipx install \
-    magic-wormhole
+    magic-wormhole \
+    maestral
 
 RUN chezmoi init --apply 0xConnorRhodes || true
 RUN sed -i "s|https://github.com/0xConnorRhodes/dotfiles.git|git@github.com:0xConnorRhodes/dotfiles.git|g" "/home/connor/.local/share/chezmoi/.git/config"
