@@ -6,7 +6,8 @@ chezmoi apply
 
 # symlink external notes mount if it exitst
 if [ ! -e "$HOME/notes" ]; then
-  if [ -d "/nmount/zk_notes" ]; then
+ #if [ -d "/nmount/zk_notes" ]; then
+  if [ -d "/nmount/box/notes" ]; then
     ln -s /nmount/zk_notes "$HOME/notes"
   fi
 fi
