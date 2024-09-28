@@ -19,6 +19,8 @@ RUN apk add \
     bash \
     powershell \
     nushell \
+    ruby \
+    ruby-dev \
     # python
     python3 \
     py3-pip \
