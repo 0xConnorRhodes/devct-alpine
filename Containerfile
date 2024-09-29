@@ -15,6 +15,7 @@ RUN apk add \
     # dev
     git \
     just \
+    jq \
     lua5.4 \
     bash \
     powershell \
