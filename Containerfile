@@ -14,6 +14,7 @@ RUN apk add \
     aria2 \
     # dev
     git \
+    make \
     just \
     jq \
     lua5.4 \
