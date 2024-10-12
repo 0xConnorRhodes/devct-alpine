@@ -77,7 +77,9 @@ RUN mkdir -p /home/connor/.local/share/fish
 RUN mkdir -p /home/connor/.vscode-server && chown -R 1000:1000 /home/connor/.vscode-server
 RUN chown -R 1000:1000 /home/connor/.local 
 
-RUN gem instal pry
+RUN gem install \
+    pry \
+    mustache
 
 # set run context for container
 USER connor
