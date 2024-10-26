@@ -79,7 +79,8 @@ RUN chown -R 1000:1000 /home/connor/.local
 
 RUN gem install \
     pry \
-    mustache
+    mustache \
+    highline
 
 # set run context for container
 USER connor
@@ -92,8 +93,7 @@ RUN pip install \
 
 RUN pipx install \
     magic-wormhole \
-    maestral \
-    highline
+    maestral
 
 RUN chezmoi init --apply 0xConnorRhodes || true
 RUN sed -i "s|https://github.com/0xConnorRhodes/dotfiles.git|git@github.com:0xConnorRhodes/dotfiles.git|g" "/home/connor/.local/share/chezmoi/.git/config"
