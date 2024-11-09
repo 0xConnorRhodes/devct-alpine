@@ -1,12 +1,12 @@
 name: Create and publish Devcontainer Image
 
 on:
- push:
-   branches:
-     - main
-   paths:
-     - 'Containerfile'
-     - 'bootstrap/**'
+  push:
+    branches:
+      - main
+    paths:
+      - 'Containerfile'
+      - 'bootstrap/**'
   pull_request:
     branches:
       - main
