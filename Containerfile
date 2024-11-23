@@ -13,7 +13,8 @@ RUN apk add \
     curl \
     aria2 \
     # dev
-    util-linux \ # provides column
+    util-linux \
+    ## provides column
     git \
     make \
     just \
