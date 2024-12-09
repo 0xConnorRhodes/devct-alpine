@@ -86,6 +86,11 @@ RUN gem install \
     highline \
     slop
 
+# set up sinatra
+RUN apk add gcc libc-dev
+RUN gem install sinatra rackup puma
+RUN apk del gcc libc-dev
+
 # set run context for container
 USER connor
 WORKDIR /home/connor
