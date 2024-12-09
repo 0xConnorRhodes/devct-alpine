@@ -12,6 +12,7 @@ RUN apk add \
     rsync \
     curl \
     aria2 \
+    tcpdump \
     # dev
     ## provides column
     util-linux \
