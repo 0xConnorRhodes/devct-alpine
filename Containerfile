@@ -94,6 +94,7 @@ RUN gem install sinatra rackup puma
 RUN apk del gcc libc-dev
 
 # deploy custom ruby modules
+RUN mkdir -p /usr/local/lib/ruby/site_ruby/
 RUN git clone https://github.com/0xConnorRhodes/ruby-modules.git /tmp/ruby-modules && \
     cp -r /tmp/ruby-modules/* /usr/local/lib/ruby/site_ruby/ && \
     rm -rf /tmp/ruby-modules
