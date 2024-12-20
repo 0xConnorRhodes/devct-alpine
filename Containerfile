@@ -86,7 +86,8 @@ RUN gem install \
     mustache \
     highline \
     slop \
-    rerun
+    rerun \
+    httparty
 
 # set up sinatra
 RUN apk add gcc libc-dev
